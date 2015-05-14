@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>广东某工业大学图书馆管理系统</title>
+    <title>XXXXX大学图书馆管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
- 			<form class="navbar-form pull-right" action="queryBook" method="get">
+ 			<form class="navbar-form pull-right" action="queryBook" method="post">
              	<h2>查询书籍信息</h2>
              
               <input class="span2" type="text" placeholder="书名关键字" name="keyWord">
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <input type="submit" class="btn" value="查询">
             </form>
     
-   			 <form class="navbar-form pull-right" action="queryUser">
+   			 <form class="navbar-form pull-right" action="queryUser" method="post">
              	<h2>查询用户信息</h2>
              <input class="sqan2" type="hidden" value="1" name="showPage"><%--默认的显示页数
               --%><input class="span2" type="text"  placeholder="用户名关键字" name="keyWord">

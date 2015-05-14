@@ -12,10 +12,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="userdata_tbl")
 public class User {
-	
-	
-	
-	
 	String username;
 	
 	String password;

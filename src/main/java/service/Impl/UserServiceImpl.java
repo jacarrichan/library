@@ -37,10 +37,10 @@ public class UserServiceImpl implements UserService {
 		
 			List<String> list = new ArrayList<String>();
 			
-			if (username == null || username.length() < 6 || username.length() > 15) {
+			if (username == null || username.length() < 6 || username.length() > 40) {
 				list.add("用户名的长度不对");
 			}
-			if (password == null || password.length() < 6 || password.length() > 15) {
+			if (password == null || password.length() < 6 || password.length() > 40) {
 				list.add("密码的的长度不对");
 			}	
 			return list;

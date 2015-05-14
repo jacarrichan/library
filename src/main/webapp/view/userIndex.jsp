@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>广东某工业大学图书馆管理系统</title>
+    <title>XXXXX某工业大学图书馆管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
