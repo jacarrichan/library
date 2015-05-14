@@ -73,6 +73,10 @@
 		<location>/404.html</location>
 	</error-page>
 	<error-page>
+		<error-code>503</error-code>
+		<location>/505.html</location>
+	</error-page>
+	<error-page>
 		<error-code>505</error-code>
 		<location>/505.html</location>
 	</error-page>

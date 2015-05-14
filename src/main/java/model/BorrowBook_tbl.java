@@ -1,73 +1,81 @@
 package model;
 
-import java.sql.Date;
-
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="borrowbook_tbl")
+@Table(name = "borrowbook_tbl")
 public class BorrowBook_tbl {
-	
-	int id;
-	
-	User user = new User();
-	
-	Book book = new Book();
-	
-	String borrowTime =new String();
-	
-	String returnTime = new String();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
-	public String getBorrowTime() {
-		return borrowTime;
-	}
+    User user = new User();
 
-	public void setBorrowTime(String borrowTime) {
-		this.borrowTime = borrowTime;
-	}
+    Book book = new Book();
 
-	public String getReturnTime() {
-		return returnTime;
-	}
+    String borrowTime = new String();
 
-	public void setReturnTime(String returnTime) {
-		this.returnTime = returnTime;
-	}
+    String returnTime = new String();
 
-	@Id
-	@GeneratedValue
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getBorrowTime() {
+        return borrowTime;
+    }
 
-	@ManyToOne
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setBorrowTime(String borrowTime) {
+        this.borrowTime = borrowTime;
+    }
 
-	@ManyToOne(cascade = {CascadeType.ALL})
-	
-	public Book getBook() {
-		return book;
-	}
 
-	public void setBook(Book book) {
-		this.book = book;
-	}
+    public String getReturnTime() {
+        return returnTime;
+    }
+
+
+    public void setReturnTime(String returnTime) {
+        this.returnTime = returnTime;
+    }
+
+
+    @Id
+    @GeneratedValue
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    @ManyToOne
+    public User getUser() {
+        return user;
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    @ManyToOne(cascade = { CascadeType.ALL })
+    public Book getBook() {
+        return book;
+    }
+
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
 }

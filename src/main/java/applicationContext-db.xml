@@ -21,7 +21,7 @@
 		<!-- 加载驱动 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<!-- database url -->
-		<property name="jdbcUrl" value="jdbc:mysql://localhost/library" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/library?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<!-- database username -->
 		<property name="user" value="root" />
 		<!-- database password -->

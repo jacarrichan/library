@@ -290,7 +290,6 @@ public class LibraryController {
     /* 增加书籍 */
     @RequestMapping(value = "/addBookSolver", method = RequestMethod.POST)
     public String addBook(Book book, Model model) {
-
         bookService.addBook(book);
         return "operateSuccess1";
     }

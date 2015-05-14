@@ -27,7 +27,6 @@ public class BookDao {
 	}
 
 	public void addBook(Book book) {
-		
 		book.setRemainer(book.getTotalAmount());
 		Session session = sessionFactory.getCurrentSession();
 		session.save(book);
