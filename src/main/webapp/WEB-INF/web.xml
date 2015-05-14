@@ -6,7 +6,7 @@
 	<display-name></display-name>
 
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -67,4 +67,22 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<!-- 配置错误处理 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>505</error-code>
+		<location>/505.html</location>
+	</error-page>
+	<!-- 配置异常处理 -->
+	<error-page>
+		<exception-type>javax.servle.ServletException</exception-type>
+		<location>/error.html</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/error.html</location>
+	</error-page>
 </web-app>

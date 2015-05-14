@@ -22,6 +22,7 @@
 	<!-- <mvc:view-controller path="/login"  view-name="login"/>path是访问的路径，login是视图的名称 （实际的路径） -->
 	
 	<!--登录和注册  -->
+	<mvc:view-controller path="/" view-name="login"/>
 	<mvc:view-controller path="/login" view-name="login"/>
 	<mvc:view-controller path="/adminIndex" view-name="adminIndex"/>
 	<mvc:view-controller path="/userIndex" view-name="userIndex"/>

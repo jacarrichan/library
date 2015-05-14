@@ -37,12 +37,25 @@ public class LibraryController {
     BorrowBookService borrowBookService;
 
 
+    @RequestMapping("/")
+    public String blank() {
+        return "login";
+    }
+
+
     /*
      * 登录模块
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model, HttpServletRequest request) {
-        return "login";
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if (null == user) {
+            return "login";
+        }
+        else {
+            return DEFAULT_INDEX;
+        }
     }
 
 
@@ -71,10 +84,10 @@ public class LibraryController {
             return "loginfail";// 跳转到失败提示页面
         }
         else if ("loginsuccess".equals(verfyResult1) && "user".equals(authority)) {
-            return "userIndex";// 跳转到普通用户界面
+            return "redirect:userIndex";// 跳转到普通用户界面
         }
         else {
-            return "adminIndex";// 跳转到管理员界面
+            return "redirect:adminIndex";// 跳转到管理员界面
         }
     }
 
@@ -429,14 +442,29 @@ public class LibraryController {
 
 
     /* 归还图书 */
-    @RequestMapping(value = "returnBook")
+    @RequestMapping(value = "/returnBook")
     public String returnBook(@RequestParam String bookid, HttpServletRequest request) {
-
         HttpSession session = request.getSession();
-
         User user = (User) session.getAttribute("user");
         borrowBookService.returnBook(bookid, user);
         return "operateSuccess2";
+    }
 
+
+    @RequestMapping(value = "/404.html")
+    public String error404(HttpServletRequest request) {
+        return "404";
+    }
+
+
+    @RequestMapping(value = "/500.html")
+    public String error500(HttpServletRequest request) {
+        return "500";
+    }
+
+
+    @RequestMapping(value = "/error.html")
+    public String error(HttpServletRequest request) {
+        return "error";
     }
 }
