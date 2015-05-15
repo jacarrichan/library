@@ -392,7 +392,7 @@ public class LibraryController {
      */
 
     /* 预约图书 */
-    @RequestMapping(value = "/bookBookSolver", method = RequestMethod.POST)
+    @RequestMapping(value = "/bookBookSolver")
     public String borrowBook(@RequestParam String bookid, HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession();
