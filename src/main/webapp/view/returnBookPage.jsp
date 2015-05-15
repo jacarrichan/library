@@ -1,18 +1,10 @@
 <%@ page language="java"
 	 pageEncoding="UTF-8"%>
 	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<base href="<%=basePath%>">
-
 <title>所有图书信息</title>
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
       body {
         padding-top: 40px;
@@ -23,9 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         margin-right:auto;
         width:50%;
       }
-      
-      
       </style>
+      <jsp:include page="/common/head.jsp" flush="true" />
 </head>
 
 <body>
@@ -41,8 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td>最晚应还时间</td>
 		</tr>
 		<c:forEach var="borrowBook" items="${borrowBooks}">
-
-
 			<tr>
 				<td>${borrowBook.book.id}</td>
 				<td>${borrowBook.book.bookname}</td>
@@ -55,8 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </tr>
 		</c:forEach>
 	</table>
-
-
 	<br>
 	<br>
 	<a href="returnBookPage?showPage=1">第一页</a>
@@ -74,23 +61,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br>
 	<a href="userIndex">返回主界面</a>
 	<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

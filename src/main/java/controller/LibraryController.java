@@ -51,7 +51,7 @@ public class LibraryController {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (null == user) {
-            return "login";
+            return DEFAULT_LOGIN;
         }
         else {
             return DEFAULT_INDEX;
@@ -72,7 +72,7 @@ public class LibraryController {
         verfyResult = userService.verfy(user);
         model.addAttribute("verfy", verfyResult);
         if (verfyResult.isEmpty() == false) {
-            return "login";
+            return DEFAULT_LOGIN;
         }
 
         // 验证数据与数据库是否一致
@@ -237,6 +237,7 @@ public class LibraryController {
 
     }
 
+    private String DEFAULT_LOGIN = "login";
     private String DEFAULT_INDEX = "adminIndex";
 
 
@@ -373,8 +374,12 @@ public class LibraryController {
         model.addAttribute("keyWord", keyWord);
 
         HttpSession session = request.getSession();
-        String authority = ((User) session.getAttribute("user")).getAuthority();
 
+        User user = (User) session.getAttribute("user");
+        if (null == user) {
+            return DEFAULT_LOGIN;
+        }
+        String authority = (user).getAuthority();
         if ("admin".equals(authority)) {
             return "queryBookResult";
         }
@@ -398,7 +403,9 @@ public class LibraryController {
         HttpSession session = request.getSession();
 
         User user = (User) session.getAttribute("user");// 获得借书用户的信息
-
+        if (null == user) {
+            return DEFAULT_LOGIN;
+        }
         Book book = new Book();// 获得书本的信息，进行封装
         int bookId1 = Integer.parseInt(bookid);
         book.setId(bookId1);
